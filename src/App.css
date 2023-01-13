@@ -1,1 +1,45 @@
 
+
+
+/* this sets a grid of the pictures */
+.container{
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    ". . ."; 
+}
+
+/* this code only shows the information of the characters on a light black screen with the information */
+.modal {
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  bottom: 30px;
+ width: 100%;
+ height:  100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); 
+}
+
+
+.modal-content{
+  border-radius: 20%;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  background-color: #4fb04f;
+  opacity: .9; 
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 45vh;
+  width: 45vw;
+  transform: translate(-50%, -50%);
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 23px;
+}
