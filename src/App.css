@@ -110,11 +110,11 @@ border-radius: 10px;
 
 .powerstats{
   font-size: 10px;
-  background-color: #824e4e;
+  background-color: #fcf4d9;
   height: 130px;
   border-radius: 10px;
   border-style: solid;
-  border-color: black ;
+  border-color: green ;
   
 
 }
@@ -141,6 +141,7 @@ border-radius: 10px;
   background: #e7ebee;
   line-height: 1.15;
   font-size: 16px;
+  
 }
   .nextButton:hover {
       transition: all .1s ease;
@@ -160,7 +161,8 @@ border-radius: 10px;
   background: #e7ebee;
   line-height: 1.15;
   font-size: 16px;
-  
+  column-gap: 20px;
+  margin: 20px;
 }
   .prevButton:hover {
       transition: all .1s ease;

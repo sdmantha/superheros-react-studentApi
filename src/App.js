@@ -31,16 +31,16 @@ function App() {
   }
 
   function handleNextClick(){
-    if(page + 25 < characters.length){
-      setPage(prev => prev + 25)
+    if(page + 16 < characters.length){
+      setPage(prev => prev + 16)
     } else {
       setPage(0)
     }
   }
 
   function handlePrevClick(){
-    if (page - 25 < characters.length){
-      setPage(prev => prev - 25)
+    if (page - 16 < characters.length){
+      setPage(prev => prev - 16)
     }else{
       setPage(0)
     }
@@ -49,8 +49,14 @@ function App() {
 
 
   return (
+    
     <div className="App">
       <Nav />
+      <div className="topButtons">
+      <button className="nextButton" onClick={handleNextClick}>Next Page</button>
+      <button className="prevButton" onClick={handlePrevClick}>Previous</button>
+      
+    </div>
       <div className="container">
         {/* the question mark was added bc without it, the page was refreshing right after it shows up. the ? makes sure its reading the code "do this, before loading the rest of the data" */}
         {characters?.slice(page, page + 16).map((character, index) => (
@@ -95,6 +101,7 @@ function App() {
           </div>
         </div>
       ) : null}
+
       <button className="nextButton" onClick={handleNextClick}>Next Page</button>
       <button className="prevButton" onClick={handlePrevClick}>Previous</button>
     </div>
