@@ -7,12 +7,9 @@ body{
   background-position: center center;
   background-attachment: fixed;
   min-height: 100%;
-  
-  
-  
- 
-  
 }
+
+
 Nav{
   color: #df6020;
   font-family: 'Bangers', cursive;
@@ -58,6 +55,10 @@ Nav{
   background-color: rgba(0,0,0,0.4); 
 }
 
+/* .model-inactive{
+  display: none;
+} */
+
 /* this shows what the infomation will look like */
 .modal-content{
   border-radius: 20%;
@@ -86,7 +87,7 @@ Nav{
  width: 222px ;
  height: 430px ;
  padding: 20px;
- box-shadow: 11px 6px 51px green;
+ box-shadow: 11px 6px 51px lightblue;
 
  
 
@@ -114,12 +115,10 @@ border-radius: 10px;
   height: 130px;
   border-radius: 10px;
   border-style: solid;
-  border-color: green ;
   
-
 }
 
-.alignment{
+.good{
   font-size: 10px;
   background-color: black;
   color: white;
@@ -127,6 +126,19 @@ border-radius: 10px;
   border-radius: 5px;
   width: 100px;
   text-align: center;
+  box-shadow: 11px 6px 30px green;
+  
+}
+
+.bad{
+  font-size: 10px;
+  background-color: black;
+  color: white;
+  display: block;
+  border-radius: 5px;
+  width: 100px;
+  text-align: center;
+  box-shadow: 11px 6px 30px red;
 }
 
 .nextButton{
