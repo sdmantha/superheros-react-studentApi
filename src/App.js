@@ -5,6 +5,7 @@ import Characters from "./screens/Characters.jsx";
 import CharacterCreate from "./screens/CharacterCreate.jsx";
 import CharacterEdit from "./screens/CharacterEdit";
 import {Routes, Route} from 'react-router-dom';
+import CharacterDetail from "./screens/CharacterDetail.jsx";
 
 function App() {
   
@@ -16,8 +17,8 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/characters" element={<Characters />} />
         <Route path="/add-character" element={<CharacterCreate />} />
-        <Route path="/character/:id/edit" element={<CharacterEdit/>} />
-
+        <Route path="/characters/:id/edit" element={<CharacterEdit/>} />
+        <Route path="/characters/:id" element={<CharacterDetail />} />
       </Routes>
       
     </div>

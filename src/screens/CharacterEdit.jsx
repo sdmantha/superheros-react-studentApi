@@ -1,28 +1,30 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { updateCharacter, getCharacter } from "../services/characters.js";
+
 
 export default function CharacterEdit() {
     const [character, setCharacter] = useState({
-        name: "",
-        image: "",
-        alignment: "",
-        intelligence: "",
-        strength: "",
-        speed: "",
-        durability: "",
-        power: "",
-        combat: "",
-        species: "",
-        gender: "",
-        race: "",
-        height: "",
-        weight: "",
-        eyeColor: "",
-        hairColor: "",
+      name: "",
+      slug: "",
+      image: "",
+      alignment: "",
+      intelligence: "",
+      strength: "",
+      speed: "",
+      durability: "",
+      power: "",
+      combat: "",
+      species: "",
+      gender: "",
+      race: "",
+      height: "",
+      weight: "",
+      eyeColor: "",
+      hairColor: "",
   });
 
-  let { name } = useParams();
+  // let { name } = useParams();
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -30,15 +32,65 @@ export default function CharacterEdit() {
   }, []);
 
   async function fetchCharacter() {
-    let oneCharacter = await getCharacter(name);
+    let oneCharacter = await getCharacter();
     setCharacter(oneCharacter);
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateCharacter(name, character);
-    navigate(`/character/${character._id}`, { replace: true });
-  };
+
+    // Format data so it matches schema
+    let fixedCharacter = {
+      name: character.name,
+      slug: character.slug,
+      powerstats: {
+          intelligence: character.intelligence,
+          strength: character.strength,
+          speed: character.speed,
+          durability: character.durability,
+          power: character.power,
+          combat: character.combat
+      },
+      appearance: {
+          gender: character.gender,
+          race: character.race,
+          height: [character.height],
+          weight: [character.weight],
+          eyeColor: character.eyeColor,
+          hairColor:character.hairColor
+      },
+      biography: {
+        fullName: "",
+        alterEgos: "",
+        aliases: [],
+        placeOfBirth: "",
+        firstAppearance: "",
+        publisher: "",
+        alignment: ""
+      },
+      work: {
+        occupation: "",
+        base: ""
+      },
+      connections: {
+        groupAffiliation: "",
+        relatives: ""
+      },
+      images: {
+        xs: "",
+        sm: character.image,
+        md: "",
+        lg: ""
+      },
+  }
+
+  await updateCharacter(fixedCharacter);
+  navigate("/characters", { replace: true });
+};
+
+    // await updateCharacter(name, fixedCharacter);
+    // navigate(`/characters/${character.id}`, { replace: true });
+  
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -52,7 +104,7 @@ export default function CharacterEdit() {
 
   return (
     <div>
-      <h1>Character Create Screen</h1>
+      <h1>Character Edit Screen</h1>
       <form className="create-form" onSubmit={handleSubmit}>
       <input
           type="text"
@@ -77,7 +129,7 @@ export default function CharacterEdit() {
         />
         <input
           type="text"
-          placeholder="Please insert your interlligence Power"
+          placeholder="Please insert your intelligence Power"
           name="intelligence"
           value={character.intelligence}
           onChange={handleChange}

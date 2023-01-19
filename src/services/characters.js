@@ -2,7 +2,7 @@ import api from "./apiConfig.js";
 
 export const getCharacters = async () => {
   try {
-    const response = await api.get("/characters");
+    const response = await api.get("/");
     return response.data;
   } catch (error) {
     throw error;
@@ -11,7 +11,7 @@ export const getCharacters = async () => {
 
 export const getCharacter = async (id) => {
   try {
-    const response = await api.get(`/characters/${id}`);
+    const response = await api.get(`/${id}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -20,7 +20,7 @@ export const getCharacter = async (id) => {
 
 export const createCharacter = async (characterData) => {
   try {
-    const response = await api.post("/characters", characterData);
+    const response = await api.post("/", characterData);
     return response.data;
   } catch (error) {
     throw error;
@@ -29,7 +29,7 @@ export const createCharacter = async (characterData) => {
 
 export const updateCharacter = async (id, characterData) => {
   try {
-    const response = await api.put(`/characters/${id}`, characterData);
+    const response = await api.put(`/${id}`, characterData);
     return response.data;
   } catch (error) {
     throw error;
@@ -38,7 +38,7 @@ export const updateCharacter = async (id, characterData) => {
 
 export const deleteCharacter = async (id) => {
   try {
-    const response = await api.delete(`/characters/${id}`);
+    const response = await api.delete(`${id}`);
     return response.data;
   } catch (error) {
     throw error;

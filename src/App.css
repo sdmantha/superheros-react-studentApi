@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 body{
-  background-image: url(./s-l1600.jpg) ;
+  
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -12,13 +12,60 @@ body{
 
 Nav{
   color: #df6020;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  font-size: 40px;
+  text-shadow: 0 0px 30px rgba(2, 255, 61, 0.985) ;
+  /* -webkit-text-stroke: 1px black;
+  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; */
+  
+}
+.Character-page{
+  background-image: url(./s-l1600.jpg) ;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+.character-create{
+  background-image: url(../minimalist-groot-art-4k-marvel-iphone-uetqxpbm67h7m8gp.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+.create-form{
+
+}
+
+.Home{
+  background-image: url(./2.jpg);
+  position: absolute; 
+  
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+
+}
+
+.TitleName{
+  color: #df6020;
   font-family: 'Bangers', cursive;
   text-align: center;
   font-size: 40px;
   text-shadow: 0 0px 30px rgba(2, 255, 61, 0.985) ;
   -webkit-text-stroke: 1px black;
-  
-  
 }
 
 

@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createCharacter } from "../services/characters.js";
 
+
 export default function CharacterCreate() {
   const [character, setCharacter] = useState({
     name: "",
+    slug: "",
     image: "",
     alignment: "",
     intelligence: "",
@@ -29,6 +31,8 @@ export default function CharacterCreate() {
 
     // Format data so it matches schema
     let fixedCharacter = {
+        name: character.name,
+        slug: character.slug,
         powerstats: {
             intelligence: character.intelligence,
             strength: character.strength,
@@ -40,15 +44,38 @@ export default function CharacterCreate() {
         appearance: {
             gender: character.gender,
             race: character.race,
-            height:character.height,
-            weight: character.weight,
+            height: [character.height],
+            weight: [character.weight],
             eyeColor: character.eyeColor,
             hairColor:character.hairColor
-        }
+        },
+        biography: {
+          fullName: "",
+          alterEgos: "",
+          aliases: [],
+          placeOfBirth: "",
+          firstAppearance: "",
+          publisher: "",
+          alignment: ""
+        },
+        work: {
+          occupation: "",
+          base: ""
+        },
+        connections: {
+          groupAffiliation: "",
+          relatives: ""
+        },
+        images: {
+          xs: "",
+          sm: character.image,
+          md: "",
+          lg: ""
+        },
     }
 
     await createCharacter(fixedCharacter);
-    navigate(`/character/${character.name}`, { replace: true });
+    navigate("/characters", { replace: true });
   };
 
   const handleChange = (e) => {
@@ -62,7 +89,7 @@ export default function CharacterCreate() {
   };
 
   return (
-    <div>
+    <div  className="character-create">
       <h1>Character Create Screen</h1>
       <form className="create-form" onSubmit={handleSubmit}>
         <input
@@ -73,7 +100,14 @@ export default function CharacterCreate() {
           onChange={handleChange}
         />
         <input
-          type="image"
+          type="text"
+          placeholder="Please insert your Slug"
+          name="slug"
+          value={character.slug}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
           placeholder="Please insert your image"
           name="image"
           value={character.image}
@@ -88,42 +122,42 @@ export default function CharacterCreate() {
         />
         <h2>Power Stats:</h2>
         <input
-          type="text"
-          placeholder="Please insert your interlligence Power"
+          type="number"
+          placeholder="Please insert your intelligence Power"
           name="intelligence"
           value={character.intelligence}
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Please insert your Strength Power"
           name="strength"
           value={character.strength}
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Please insert your Speed Power"
           name="speed"
           value={character.speed}
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Please insert your Durability Power"
           name="durability"
           value={character.durability}
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Please insert your Power Stat"
           name="power"
           value={character.power}
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Please insert your Combat Power"
           name="combat"
           value={character.combat}
